@@ -6,6 +6,18 @@ class Counter extends Component {
     fontWeight: "bold",
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      console.log("Ajax call");
+    }
+  }
+
+  componentWillUnmount() {
+    console.log("Counter - Unmount");
+  }
+
   render() {
     return (
       <React.Fragment>

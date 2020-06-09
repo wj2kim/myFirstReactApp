@@ -14,6 +14,28 @@ class App extends Component {
     ],
   };
 
+  constructor(props) {
+    super(props);
+    console.log("App - Constructor");
+  }
+
+  componentDidMount() {
+    // perfect time to calla ajax call
+    console.log("App - Mounted");
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("prevProps", prevProps);
+  //   console.log("prevState", prevState);
+  // }
+
+  /* 
+life cycle 
+1. mount. constructor -> render -> componentDidMount 
+2. update. render -> componentDidUpdate ( this phase happens whenever state or props component changes )
+3. unmount. componentWillUnmount 
+*/
+
   handleDelete = (counterId) => {
     const counters = this.state.counters.filter((c) => c.id !== counterId);
     this.setState({ counters: counters });
