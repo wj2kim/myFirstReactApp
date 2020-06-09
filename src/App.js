@@ -3,6 +3,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/navbar";
 import Counters from "./components/counters";
+import Temp from "./components/temp";
+import EventPractice from "./components/eventPractice";
+import ValidationSample from "./components/validationSample";
 
 class App extends Component {
   state = {
@@ -70,6 +73,9 @@ life cycle
             onIncrement={this.handleIncrement}
             onDelete={this.handleDelete}
           />
+          {/* <Temp />
+          <EventPractice /> */}
+          <ValidationSample />
         </main>
       </React.Fragment>
     );
