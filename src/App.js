@@ -4,8 +4,16 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Counters from "./components/counters";
 import Temp from "./components/temp";
-import EventPractice from "./components/eventPractice";
-import ValidationSample from "./components/validationSample";
+// import EventPractice from "./components/eventPractice";
+// import ValidationSample from "./components/validationSample";
+// import ScrollBox from "./components/ScrollBox";
+// import IterationSample from "./components/IterationSample";
+import LifeCycleSample from "./components/lifeCycleSample";
+import ErrorBoundary from "./components/errorBoundary";
+
+function getRandomColor() {
+  return "#" + Math.floor(Math.random() * 16777215).toString(16);
+}
 
 class App extends Component {
   state = {
@@ -15,17 +23,24 @@ class App extends Component {
       { id: 3, value: 0 },
       { id: 4, value: 0 },
     ],
+    color: "#000000",
   };
 
-  constructor(props) {
-    super(props);
-    console.log("App - Constructor");
-  }
+  handleClick = () => {
+    this.setState({
+      color: getRandomColor(),
+    });
+  };
 
-  componentDidMount() {
-    // perfect time to calla ajax call
-    console.log("App - Mounted");
-  }
+  // constructor(props) {
+  //   super(props);
+  //   console.log("App - Constructor");
+  // }
+
+  // componentDidMount() {
+  //   // perfect time to calla ajax call
+  //   console.log("App - Mounted");
+  // }
 
   // componentDidUpdate(prevProps, prevState) {
   //   console.log("prevProps", prevProps);
@@ -75,7 +90,20 @@ life cycle
           />
           {/* <Temp />
           <EventPractice /> */}
-          <ValidationSample />
+          {/* <ValidationSample /> */}
+          {/* <ScrollBox
+            ref={(ref) => {
+              this.scrollBox = ref;
+            }}
+          />
+          <button onClick={() => this.scrollBox.scrollToBottom()}>
+            맨 밑으로
+          </button> */}
+          {/* <IterationSample /> */}
+          <button onClick={this.handleClick}>Random Color</button>
+          <ErrorBoundary>
+            <LifeCycleSample color={this.state.color} />
+          </ErrorBoundary>
         </main>
       </React.Fragment>
     );

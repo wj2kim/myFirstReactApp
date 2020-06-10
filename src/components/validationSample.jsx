@@ -21,6 +21,7 @@ class ValidationSample extends Component {
       validated: this.state.password === "0000",
     });
     this.input.focus();
+    // console.log(this.myComponent);
   };
 
   render() {
